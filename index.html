@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>👑 maalamal SMP s4 👑</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Reset CSS */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('bgpic.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 50px;
+        }
+
+        .header h1 {
+            font-size: 64px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 24px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .tabs {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            list-style-type: none;
+        }
+
+        .tabs li {
+            margin-left: 20px;
+        }
+
+        .tabs li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tabs li a:hover {
+            background-color: #ddd;
+        }
+
+        .server-info {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .server-info h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .server-info ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .server-info li {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .server-info li i {
+            margin-right: 10px;
+            color: #007bff;
+            font-size: 24px;
+        }
+
+        .server-info a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .server-info a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #333;
+            font-size: 32px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            border-radius: 20px;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .form-container h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="submit"],
+        .form-container textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="tabs">
+            <li><a href="#about">About</a></li>
+            <li><a href="#staff">Staff Members</a></li>
+            <li><a href="#report">Report a Player</a></li>
+            <li><a href="#apply-for-staff">Apply for Staff</a></li>
+        </ul>
+        <div class="header">
+            <h1>👑 maalamal smp s4 👑</h1>
+            <p>Come and Join the #1 minecraft server that uses the Minecraft Server Vendor "Aternos"!</p>
+        </div>
+        <div class="server-info" id="about">
+            <h2>About</h2>
+            <p>One of the best SMP servers using Aternos</p>
+            <ul>
+                <li>『💵』Economy</li>
+                <li>『🌴』Custom items and grind</li>
+                <li>『♥』LifeSteal Survival</li>
+                <li>『🏡』Teams to Make</li>
+                <li>『⏮』ViaBackwards and ViaRewind</li>
+		<li>『🔪』Kits</li>
+            </ul>
+        </div>
+        <div class="server-info" id="staff" style="display: none;">
+            <h2>Staff Members</h2>
+            <ul>
+                <li><i class="fas fa-user"></i>  Raking16</li>
+                <li><i class="fas fa-user"></i>  veni_._ - website designer and moderator</li>
+                <li><i class="fas fa-user"></i>  Hanzala - Administrator</li>
+            </ul>
+        </div>
+        <div class="form-container" id="report" style="display: none;">
+            <h2>Report a Player</h2>
+            <form action="#" method="post">
+                <label for="player-username">Player's Minecraft Username:</label>
+                <input type="text" id="player-username" name="player-username" required>
+
+                <label for="hacker-username">Your Minecraft Username:</label>
+                <input type="text" id="hacker-username" name="hacker-username" required>
+
+                <label for="rules-broken">Rules Broken:</label>
+                <textarea id="rules-broken" name="rules-broken" rows="4" required></textarea>
+
+                <label for="contact-method">Preferred Contact Method:</label>
+                <input type="text" id="contact-method" name="contact-method" required>
+
+                <input type="submit" value="Submit Report">
+            </form>
+        </div>
+        <div class="form-container" id="apply-for-staff" style="display: none;">
+            <h2>Apply for Staff</h2>
+            <form action="#" method="post">
+                <label for="discord-username">Discord Username:</label>
+                <input type="text" id="discord-username" name="discord-username" required>
+
+                <label for="minecraft-username">Minecraft Username:</label>
+                <input type="text" id="minecraft-username" name="minecraft-username" required>
+
+                <label for="reason">Why do you want to be a staff member?</label>
+                <textarea id="reason" name="reason" rows="4" required></textarea>
+
+                <label for="experience">Do you have any previous experience as a staff member?</label>
+                <textarea id="experience" name="experience" rows="4"></textarea>
+
+                <input type="submit" value="Submit Application">
+            </form>
+        </div>
+        <div class="social-icons">
+            <a href="https://discord.gg/EtmWQh5w" target="_blank"><i class="fab fa-discord"></i></a>
+        </div>
+        <div class="footer">
+            &copy; 2024 maalamal. All Rights Reserved. <br>
+            Server Address: MalamaalS4.aternos.me:12533 (1.20 and 1.20.1) <br>
+	    Website made by: veni_._
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <script>
+        document.querySelectorAll('.tabs li a').forEach(tab => {
+            tab.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = this.getAttribute('href').substring(1);
+                document.querySelectorAll('.server-info, .form-container').forEach(info => {
+                    info.style.display = 'none';
+                });
+                document.getElementById(target).style.display = 'block';
+            });
+        });
+    </script>
+</body>
+
+</html>
