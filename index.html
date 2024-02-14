@@ -305,28 +305,34 @@
 
         function submitForm(webhookURL, content) {
             const formData = new FormData(event.target);
+            const payload = {
+                content: content,
+                embeds: [{
+                    title: content,
+                    fields: [
+                        { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
+                        { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
+                        { name: 'Reason', value: formData.get('reason') },
+                        { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
+                    ],
+                    color: content === 'Player Report' ? 16711680 : 16761867 // Red for reports, blue for applications
+                }]
+            };
+
             fetch(webhookURL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    content: content,
-                    embeds: [{
-                        title: content,
-                        fields: [
-                            { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
-                            { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
-                            { name: 'Reason', value: formData.get('reason') },
-                            { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
-                        ],
-                        color: content === 'Player Report' ? 16711680 : 16761867 // Red for reports, blue for applications
-                    }]
-                })
+                body: JSON.stringify(payload)
             })
-            .then(() => {
-                alert(content === 'Player Report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
-                event.target.reset(); // Clear the form fields
+            .then(response => {
+                if (response.ok) {
+                    alert(content === 'Player Report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
+                    event.target.reset(); // Clear the form fields
+                } else {
+                    alert('Failed to submit. Please try again later.');
+                }
             })
             .catch(error => {
                 console.error('Error:', error);
