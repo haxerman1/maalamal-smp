@@ -8,6 +8,195 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         /* CSS styles here */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-image: url('bgpic.jpg');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .tabs li {
+            margin-right: 20px;
+        }
+
+        .tabs li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tabs li a:hover {
+            background-color: #ddd;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-top: 50px;
+        }
+
+        .header h1 {
+            font-size: 64px;
+            color: #333;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .header p {
+            font-size: 24px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .server-info {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .server-info h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .server-info ul {
+            list-style: none;
+            padding-left: 0;
+            margin-bottom: 30px;
+        }
+
+        .server-info li {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .server-info li i {
+            margin-right: 10px;
+            color: #007bff;
+            font-size: 24px;
+        }
+
+        .server-info a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .server-info a:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .form-container {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .form-container h2 {
+            font-size: 32px;
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-container form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            font-size: 20px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="submit"],
+        .form-container textarea {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .form-container input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-container input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .social-icons {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .social-icons a {
+            margin: 0 15px;
+            color: #333;
+            font-size: 32px;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #007bff;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 50px;
+            background-color: #333;
+            padding: 20px;
+            color: #fff;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body>
@@ -19,7 +208,7 @@
             <li><a href="#apply-for-staff">Apply for Staff</a></li>
         </ul>
         <div class="header">
-            <h1>👑 maalamal smp s4 👑</h1>
+            <h1>👑 maalamal SMP s4 👑</h1>
             <p>Come and Join the #1 minecraft server that uses the Minecraft Server Vendor "Aternos"!</p>
         </div>
         <div class="server-info" id="about">
@@ -57,7 +246,7 @@
                 <label for="contact-method">Preferred Contact Method:</label>
                 <input type="text" id="contact-method" name="contact-method" required>
 
-                <button type="submit">Submit Report</button>
+                <input type="submit" value="Submit Report">
             </form>
         </div>
         <div class="form-container" id="apply-for-staff" style="display: none;">
@@ -75,7 +264,7 @@
                 <label for="experience">Do you have any previous experience as a staff member?</label>
                 <textarea id="experience" name="experience" rows="4"></textarea>
 
-                <button type="submit">Submit Application</button>
+                <input type="submit" value="Submit Application">
             </form>
         </div>
         <div class="social-icons">
@@ -89,50 +278,35 @@
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
     <script>
-        document.querySelectorAll('.tabs li a').forEach(tab => {
-            tab.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = this.getAttribute('href').substring(1);
-                document.querySelectorAll('.server-info, .form-container').forEach(info => {
-                    info.style.display = 'none';
-                });
-                document.getElementById(target).style.display = 'block';
-            });
-        });
-
         function submitForm(webhookURL, content) {
-            const formData = new FormData(event.target);
-            const payload = {
-                content: content,
-                embeds: [{
-                    title: content,
-                    fields: [
-                        { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
-                        { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
-                        { name: 'Reason', value: formData.get('reason') },
-                        { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
-                    ],
-                    color: content === 'Player Report' ? 16711680 : 16761867
-                }]
-            };
-
+            const form = this;
+            const formData = new FormData(form);
             fetch(webhookURL, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(payload)
+                body: JSON.stringify({
+                    content: content,
+                    embeds: [{
+                        title: content === 'Player Report' ? 'New Player Report' : 'New Staff Application',
+                        fields: [
+                            { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
+                            { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
+                            { name: 'Reason', value: formData.get('reason') },
+                            { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
+                        ],
+                        color: content === 'Player Report' ? 16711680 : 16761867 // Red for reports, blue for applications
+                    }]
+                })
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error('Failed to submit. Server returned ' + response.status + ' ' + response.statusText);
+                if (response.ok) {
+                    alert(content === 'Player Report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
+                    form.reset(); // Clear the form fields
+                } else {
+                    alert('Failed to submit. Please try again later.');
                 }
-                return response.json();
-            })
-            .then(data => {
-                console.log(data); // Log the response data for debugging
-                alert(content === 'Player Report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
-                event.target.reset(); // Clear the form fields
             })
             .catch(error => {
                 console.error('Error:', error);
