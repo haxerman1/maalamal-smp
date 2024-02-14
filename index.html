@@ -237,7 +237,7 @@
         </div>
         <div class="form-container" id="report" style="display: none;">
             <h2>Report a Player</h2>
-            <form action="#" method="post">
+            <form id="report-form">
                 <label for="player-username">Player's Minecraft Username:</label>
                 <input type="text" id="player-username" name="player-username" required>
 
@@ -255,7 +255,7 @@
         </div>
         <div class="form-container" id="apply-for-staff" style="display: none;">
             <h2>Apply for Staff</h2>
-            <form action="#" method="post">
+            <form id="apply-form">
                 <label for="discord-username">Discord Username:</label>
                 <input type="text" id="discord-username" name="discord-username" required>
 
@@ -293,47 +293,46 @@
             });
         });
 
-        document.querySelectorAll('form').forEach(form => {
-            form.addEventListener('submit', function (e) {
-                e.preventDefault();
-                const formData = new FormData(this);
-                let webhookURL;
-
-                if (form.id === 'report') {
-                    webhookURL = 'https://discord.com/api/webhooks/1207201957500952576/pQfLtlG64qU3za0Q4gMg4N8ZiTZok4lqogZ5iS36b_OW_mCmwayhNKlEfdG872EcTbtd';
-                } else if (form.id === 'apply-for-staff') {
-                    webhookURL = 'https://discord.com/api/webhooks/1207201763976020028/pIsuitY0pPNUQDKsQouk3GlBIBCA1IPitYrswnYIZMcC-h2Cyl6KXN5t1o8gCKQSOq3W';
-                }
-
-                fetch(webhookURL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        content: form.id === 'report' ? 'Player Report' : 'Staff Application',
-                        embeds: [{
-                            title: form.id === 'report' ? 'New Player Report' : 'New Staff Application',
-                            fields: [
-                                { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
-                                { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
-                                { name: 'Reason', value: formData.get('reason') },
-                                { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
-                            ],
-                            color: form.id === 'report' ? 16711680 : 16761867 // Red for reports, blue for applications
-                        }]
-                    })
-                })
-                .then(() => {
-                    alert(form.id === 'report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
-                    form.reset(); // Clear the form fields
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                    alert('An error occurred while submitting.');
-                });
-            });
+        document.getElementById('report-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitForm('https://discord.com/api/webhooks/1205563390140092448/Z-A8gQCgH3z3PR8WexT-FZbt7yK55ttqe2k0PREcLCeKoXbYfs6D7YVhdLRJBrfEmvzP', 'Player Report');
         });
+
+        document.getElementById('apply-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            submitForm('https://discord.com/api/webhooks/1205562191999410219/9L_6E1l6qFF2WGq2mwnb1rR-mwFFqR9f_2_TjUr35Xgi0gtUwyMXD2YUPoi4ATdqWcjt', 'Staff Application');
+        });
+
+        function submitForm(webhookURL, content) {
+            const formData = new FormData(event.target);
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    content: content,
+                    embeds: [{
+                        title: content,
+                        fields: [
+                            { name: 'Discord Username', value: formData.get('discord-username'), inline: true },
+                            { name: 'Minecraft Username', value: formData.get('minecraft-username'), inline: true },
+                            { name: 'Reason', value: formData.get('reason') },
+                            { name: 'Experience', value: formData.get('experience') || 'No previous experience' }
+                        ],
+                        color: content === 'Player Report' ? 16711680 : 16761867 // Red for reports, blue for applications
+                    }]
+                })
+            })
+            .then(() => {
+                alert(content === 'Player Report' ? 'Report submitted successfully!' : 'Application submitted successfully!');
+                event.target.reset(); // Clear the form fields
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('An error occurred while submitting.');
+            });
+        }
     </script>
 </body>
 
